@@ -16,11 +16,10 @@ const addQuote = async (req, res) => {
   }
 };
 
-const getQuotes = async (res) => {
+const getQuotes = async (_req, res) => {
   try {
     const quotes = await QuotesModel.find();
-
-    return res.status(200).send(quotes)
+    return res.status(200).send(quotes);
   } catch (error) {
     return BadRequest();
   }
@@ -28,5 +27,5 @@ const getQuotes = async (res) => {
 
 module.exports = {
   addQuote,
-  getQuotes
+  getQuotes,
 };
