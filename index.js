@@ -5,6 +5,7 @@ const cors = require("cors");
 const connectDB = require("./database/db");
 const quote = require("./routes/quote");
 const RateLimit = require("express-rate-limit");
+const PORT = process.env.PORT;
 connectDB();
 
 const limiter = new RateLimit({
@@ -13,7 +14,7 @@ const limiter = new RateLimit({
 });
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: `http://localhost:${PORT}`,
   })
 );
 app.use(limiter);
@@ -22,7 +23,6 @@ app.disable("x-powered-by");
 
 app.use("/api", quote);
 
-const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.info(`Server running at ${PORT}`);
 });
