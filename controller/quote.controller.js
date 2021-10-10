@@ -14,7 +14,9 @@ const addQuote = async (req, res) => {
     let body = req.body;
     if (!body) return res.send(NotFound());
     // Check data already exist
-    const check = await QuotesModel.findOne({ quote: body.quote });
+    const check = await QuotesModel.findOne({
+      quote: body.quote,
+    });
     if (check) return res.send(NotFound());
 
     const quotes = await new QuotesModel({
@@ -51,21 +53,37 @@ const getQuotes = async (_req, res) => {
 const getQuoteQuery = async (req, res) => {
   try {
     let { quote, min, max } = req.query;
-
+    min = parseInt(min);
+    max = parseInt(max);
+    if (isNaN(min) || isNaN(max)) {
+      return res.status(400).send("mo");
+    }
     if (quote === "random" && min && max) {
       const quotes = await QuotesModel.find({
-        length: { $lte: max, $gte: min },
+        length: {
+          $lte: max,
+          $gte: min,
+        },
       });
+      // console.log(quotes);
       const data = quotes[Math.floor(Math.random() * quotes.length)];
       return res.send(data);
     }
     if (quote === "random" && min) {
-      const quotes = await QuotesModel.find({ length: { $gte: min } });
+      const quotes = await QuotesModel.find({
+        length: {
+          $gte: min,
+        },
+      });
       const data = quotes[Math.floor(Math.random() * quotes.length)];
       return res.send(data);
     }
     if (quote === "random" && max) {
-      const quotes = await QuotesModel.find({ length: { $lte: max } });
+      const quotes = await QuotesModel.find({
+        length: {
+          $lte: max,
+        },
+      });
       const data = quotes[Math.floor(Math.random() * quotes.length)];
       return res.send(data);
     }
@@ -75,15 +93,28 @@ const getQuoteQuery = async (req, res) => {
       return res.status(200).send(data);
     }
     if (max && min) {
-      const data = await QuotesModel.find({ length: { $lte: max, $gte: min } });
+      const data = await QuotesModel.find({
+        length: {
+          $lte: max,
+          $gte: min,
+        },
+      });
       return res.send(data);
     }
     if (min) {
-      const data = await QuotesModel.find({ length: { $gte: min } });
+      const data = await QuotesModel.find({
+        length: {
+          $gte: min,
+        },
+      });
       return res.send(data);
     }
     if (max) {
-      const data = await QuotesModel.find({ length: { $lte: max } });
+      const data = await QuotesModel.find({
+        length: {
+          $lte: max,
+        },
+      });
       return res.send(data);
     }
   } catch (error) {
