@@ -56,7 +56,7 @@ const getQuoteQuery = async (req, res) => {
     min = parseInt(min);
     max = parseInt(max);
     if (min >= max) return res.status(404).send(NotAccept());
-    if (isNaN(min) || isNaN(min)) {
+    if (isNaN(min) || isNaN(max)) {
       return res.status(400).send({
         status: 404,
         message: "Invalid query min/max",
