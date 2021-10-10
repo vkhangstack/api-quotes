@@ -14,8 +14,8 @@ const addQuote = async (req, res) => {
     let body = req.body;
     if (!body) return res.send(NotFound());
     // Check data already exist
-    const check = await QuotesModel.findOne({
-      quote: body.quote,
+    const check = await QuotesModel.find({
+      quote: { $eq: body.quote },
     });
     if (check) return res.send(NotFound());
 
@@ -56,7 +56,10 @@ const getQuoteQuery = async (req, res) => {
     min = parseInt(min);
     max = parseInt(max);
     if (isNaN(min) || isNaN(max)) {
-      return res.status(400).send("mo");
+      return res.status(400).send({
+        status: 404,
+        message: "Invalid query min/max",
+      });
     }
     if (quote === "random" && min && max) {
       const quotes = await QuotesModel.find({
