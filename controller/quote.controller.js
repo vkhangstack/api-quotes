@@ -3,11 +3,11 @@
 const NotFound = require("../utils/handleNotFound");
 const BadRequest = require("../utils/handleBadRequest");
 const QuotesModel = require("../models/quotes.model");
+const NotAccept = require("../utils/handleNotAccept");
+const Random = require("../utils/random");
+
 /**
  * Add single quote to database.
- * * Important is from data
- * ! If body null return not found
- * ? This is method exposed in the public API
  */
 const addQuote = async (req, res) => {
   try {
@@ -55,7 +55,8 @@ const getQuoteQuery = async (req, res) => {
     let { quote, min, max } = req.query;
     min = parseInt(min);
     max = parseInt(max);
-    if (isNaN(min) || isNaN(max)) {
+    if (min >= max) return res.status(404).send(NotAccept());
+    if (isNaN(min) && isNaN(min)) {
       return res.status(400).send({
         status: 404,
         message: "Invalid query min/max",
@@ -68,7 +69,7 @@ const getQuoteQuery = async (req, res) => {
           $gte: min,
         },
       });
-      const data = quotes[Math.floor(Math.random() * quotes.length)];
+      const data = quotes[Math.floor(Random() * quotes.length)];
       return res.send(data);
     }
     if (quote === "random" && min) {
@@ -77,7 +78,7 @@ const getQuoteQuery = async (req, res) => {
           $gte: min,
         },
       });
-      const data = quotes[Math.floor(Math.random() * quotes.length)];
+      const data = quotes[Math.floor(Random() * quotes.length)];
       return res.send(data);
     }
     if (quote === "random" && max) {
@@ -86,12 +87,12 @@ const getQuoteQuery = async (req, res) => {
           $lte: max,
         },
       });
-      const data = quotes[Math.floor(Math.random() * quotes.length)];
+      const data = quotes[Math.floor(Random() * quotes.length)];
       return res.send(data);
     }
     if (quote === "random") {
       const quotes = await QuotesModel.find();
-      const data = quotes[Math.floor(Math.random() * quotes.length)];
+      const data = quotes[Math.floor(Random() * quotes.length)];
       return res.status(200).send(data);
     }
     if (max && min) {
