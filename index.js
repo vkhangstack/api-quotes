@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 const connectDB = require("./database/db");
 const quote = require("./routes/quote");
+const home = require("./routes/home");
 const RateLimit = require("express-rate-limit");
 const PORT = process.env.PORT;
 connectDB();
@@ -22,6 +23,7 @@ app.use(express.json());
 app.disable("x-powered-by");
 
 app.use("/api", quote);
+app.use("/", home);
 
 app.listen(PORT, () => {
   console.info(`Server running at ${PORT}`);
