@@ -65,7 +65,6 @@ const getQuoteQuery = async (req, res) => {
           $gte: min,
         },
       });
-      // console.log(quotes);
       const data = quotes[Math.floor(Math.random() * quotes.length)];
       return res.send(data);
     }
