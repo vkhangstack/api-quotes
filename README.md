@@ -1,6 +1,6 @@
 # **API Quotes**
 
-API Quotes là miễn phí, mã nguồn mở. Nó được xấy dựng từ nhu cầu sử dụng của một coder để gọi gọi từ web portfolio và Github Profile. Cơ sở dữ liệu trên MongoDB Cloud. Trong tương sẽ có tính năng đóng góp những quotes từ cộng đồng.
+API Quotes là miễn phí, mã nguồn mở. Nó được xấy dựng từ nhu cầu sử dụng của một coder để gọi gọi từ web Portfolio. Cơ sở dữ liệu MongoDB.
 
 ## Code Quality
 
@@ -10,16 +10,16 @@ API Quotes là miễn phí, mã nguồn mở. Nó được xấy dựng từ nhu
 
 ## Server
 
-| Name       | URL                                    | Description                                       |
-| :--------- | :------------------------------------- | :------------------------------------------------ |
-| Staging    | https://stage-vi-quotes.herokuapp.com/ | Synced with the stating branch of this repository |
-| Production | ""                                     | The primary API server                            |
+| Name       | URL                                     | Description                                       |
+| :--------- | :-------------------------------------- | :------------------------------------------------ |
+| Staging    | https://stage-api-quotes.herokuapp.com/ | Synced with the stating branch of this repository |
+| Production | ""                                      | The primary API server                            |
 
 ## API Reference
 
 ### Get all quotes
 
-> **GET** /quotes
+> **GET** /api/quotes
 
 Trả về tất cả các cả các quotes.
 
@@ -37,3 +37,7 @@ Trả về tất cả các cả các quotes.
     __v: 0
 }
 ```
+
+#### Example request
+
+> https://stage-api-quotes.herokuapp.com/api/quotes
