@@ -10,11 +10,11 @@ connectDB();
 
 const limiter = new RateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute only 15 request
-  max: 75,
+  max: 15,
 });
 app.use(
   cors({
-    origin: `http://localhost:${PORT}`,
+    origin: process.env.BASE_URL,
   }),
 );
 app.use(limiter);
