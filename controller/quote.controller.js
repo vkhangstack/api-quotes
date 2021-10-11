@@ -14,10 +14,10 @@ const addQuote = async (req, res) => {
     let body = req.body;
     if (!body) return res.send(NotFound());
     // Check data already exist
-    const check = await QuotesModel.find({
+    const check = await QuotesModel.findOne({
       quote: { $eq: body.quote.toString() },
     });
-    if (check[0]) return res.send(NotFound());
+    if (check) return res.send(NotFound());
 
     const quotes = await new QuotesModel({
       quote: body.quote,
