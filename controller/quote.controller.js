@@ -30,8 +30,6 @@ const addQuote = async (req, res) => {
       length: body.quote.length,
     }).save();
 
-    if (!quotes) return res.send(NotFound());
-
     return res.status(200).send(quotes);
   } catch (error) {
     return BadRequest();
