@@ -27,7 +27,7 @@ Trả về tất cả các cả các quotes.
 
 #### Example request
 
-> https://stage-api-quotes.herokuapp.com/api/quotes
+> http://localhost:3000/api/quotes
 
 ### Response
 
@@ -71,36 +71,36 @@ Trả về tất cả các cả các quotes.
 
 #### Examples
 
-Random Quote [try in browser](https://stage-api-quotes.herokuapp.com/api/query?quote=random)
+Random Quote [try in browser](http://localhost:3000/api/query?quote=random)
 
 ```HTTP
 GET /api/query?quote=random
 ```
 
-Random Quote with a maximum length of 50 characters [try in browser](https://stage-api-quotes.herokuapp.com/api/query?quote=random&max=50)
+Random Quote with a maximum length of 50 characters [try in browser](http://localhost:3000/api/query?quote=random&max=50)
 
 ```HTTP
 GET /api/query?quote=random&max=50
 ```
 
-Random Quote with a minium length of 50 characters [try in browser](https://stage-api-quotes.herokuapp.com/api/query?quote=random&min=50)
+Random Quote with a minium length of 50 characters [try in browser](http://localhost:3000/api/query?quote=random&min=50)
 
 ```HTTP
 GET /api/query?quote=random&min=50
 ```
 
-Random Quote with a length between 50 and 140 characters [try in browser](https://stage-api-quotes.herokuapp.com/api/query?quote=random&min=50&max=140)
+Random Quote with a length between 50 and 140 characters [try in browser](http://localhost:3000/api/query?quote=random&min=50&max=140)
 
 ```HTTP
 GET /api/query?quote=random&min=50&max=140
 ```
 
-## Usage
+## Usage on localhost
 
 Get a random quote (fetch)
 
 ```js
-fetch("https://stage-api-quotes.herokuapp.com/api/query?quote=random")
+fetch("http://localhost:3000/api/query?quote=random")
   .then((response) => response.json())
   .then((data) => {
     console.log(`${data.quote} — ${data.author}`);
@@ -111,9 +111,7 @@ Get a random quote (async/await)
 
 ```js
 async function randomQuote() {
-  const response = await fetch(
-    "https://stage-api-quotes.herokuapp.com/api/query?quote=random",
-  );
+  const response = await fetch("http://localhost:3000/api/query?quote=random");
   const data = await response.json();
   console.log(`${data.quote} — ${data.author}`);
 }
@@ -123,10 +121,7 @@ randomQuote();
 Get a random quote (JQuery)
 
 ```js
-$.getJSON(
-  "https://stage-api-quotes.herokuapp.com/api/query?quote=random",
-  function (data) {
-    console.log(`${data.quote} — ${data.author}`);
-  },
-);
+$.getJSON("http://localhost:3000/api/query?quote=random", function (data) {
+  console.log(`${data.quote} — ${data.author}`);
+});
 ```
