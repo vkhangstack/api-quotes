@@ -15,7 +15,7 @@ const limiter = new RateLimit({
 });
 app.use(
   cors({
-    origin: `http://localhost:${PORT}`,
+    origin: process.env.BASE_URL,
   }),
 );
 app.use(limiter);
