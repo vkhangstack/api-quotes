@@ -8,6 +8,8 @@ API Quotes là miễn phí, mã nguồn mở. Nó được xấy dựng từ nhu
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=vkhangstack_api-quotes)
 
+[![GitHub license](https://img.shields.io/github/license/vkhangstack/api-quotes?style=plastic)](https://github.com/vkhangstack/api-quotes/)
+
 ## Server
 
 | Name       | URL                                     | Description                                       |
@@ -17,11 +19,15 @@ API Quotes là miễn phí, mã nguồn mở. Nó được xấy dựng từ nhu
 
 ## API Reference
 
-### Get all quotes
+### Get list quotes
 
 > **GET** /api/quotes
 
 Trả về tất cả các cả các quotes.
+
+#### Example request
+
+> https://stage-api-quotes.herokuapp.com/api/quotes
 
 ### Response
 
@@ -38,6 +44,89 @@ Trả về tất cả các cả các quotes.
 }
 ```
 
-#### Example request
+### Get random quote
 
-> https://stage-api-quotes.herokuapp.com/api/quotes
+> **GET** /api/query
+
+#### Query parameters
+
+| param | type     | Description                                                     |
+| :---- | :------- | :-------------------------------------------------------------- |
+| quote | `String` | Set quote=random for random quote                               |
+| max   | `Int`    | The maximum Length in characters ( can be combined with `min` ) |
+| min   | `Int`    | The minimum Length in characters ( can be combined with `max` ) |
+
+```js
+{
+    _id: oid,
+    quote: String,
+    author: String,
+    tags: [],
+    length: Number,
+    createdAt: Date,
+    updatedAt: Date
+    __v: 0
+}
+```
+
+#### Examples
+
+Random Quote [try in browser](https://stage-api-quotes.herokuapp.com/api/query?quote=random)
+
+```HTTP
+GET /api/query?quote=random
+```
+
+Random Quote with a maximum length of 50 characters [try in browser](https://stage-api-quotes.herokuapp.com/api/query?quote=random&max=50)
+
+```HTTP
+GET /api/query?quote=random&max=50
+```
+
+Random Quote with a minium length of 50 characters [try in browser](https://stage-api-quotes.herokuapp.com/api/query?quote=random&min=50)
+
+```HTTP
+GET /api/query?quote=random&min=50
+```
+
+Random Quote with a length between 50 and 140 characters [try in browser](https://stage-api-quotes.herokuapp.com/api/query?quote=random&min=50&max=140)
+
+```HTTP
+GET /api/query?quote=random&min=50&max=140
+```
+
+## Usage
+
+Get a random quote (fetch)
+
+```js
+fetch("https://stage-api-quotes.herokuapp.com/api/query?quote=random")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(`${data.quote} — ${data.author}`);
+  });
+```
+
+Get a random quote (async/await)
+
+```js
+async function randomQuote() {
+  const response = await fetch(
+    "https://stage-api-quotes.herokuapp.com/api/query?quote=random",
+  );
+  const data = await response.json();
+  console.log(`${data.quote} — ${data.author}`);
+}
+randomQuote();
+```
+
+Get a random quote (JQuery)
+
+```js
+$.getJSON(
+  "https://stage-api-quotes.herokuapp.com/api/query?quote=random",
+  function (data) {
+    console.log(`${data.quote} — ${data.author}`);
+  },
+);
+```
