@@ -1,6 +1,6 @@
 # **API Quotes**
 
-API Quotes là miễn phí, mã nguồn mở. Nó được xấy dựng từ nhu cầu sử dụng của một coder để gọi gọi từ web Portfolio. Cơ sở dữ liệu MongoDB.
+The Quotes API is free, open source. It is built from the needs of a coder to call from the web Portfolio. MongoDB database.
 
 ## Code Quality
 
