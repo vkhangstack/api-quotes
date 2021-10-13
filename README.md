@@ -32,7 +32,8 @@ Returns all quotes.
 ### Response
 
 ```js
-{
+[
+  {
     _id: oid,
     quote: String,
     author: String,
@@ -43,6 +44,8 @@ Returns all quotes.
     updatedAt: Date
     __v: 0
 }
+...
+]
 ```
 
 ### Get random quote
