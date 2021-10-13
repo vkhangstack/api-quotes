@@ -10,7 +10,7 @@ The Quotes API is free, open source. It was built from the needs of a coder to c
 
 [![GitHub license](https://img.shields.io/github/license/vkhangstack/api-quotes?style=plastic)](https://github.com/vkhangstack/api-quotes/)
 
-## Documents product
+# **Documents product**
 
 ## Server
 
