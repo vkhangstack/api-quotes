@@ -1,6 +1,6 @@
 # **API Quotes**
 
-API Quotes là miễn phí, mã nguồn mở. Nó được xấy dựng từ nhu cầu sử dụng của một coder để gọi gọi từ web Portfolio. Cơ sở dữ liệu MongoDB.
+The Quotes API is free, open source. It was built from the needs of a coder to call from the web Portfolio. MongoDB database.
 
 ## Code Quality
 
@@ -23,7 +23,7 @@ API Quotes là miễn phí, mã nguồn mở. Nó được xấy dựng từ nhu
 
 > **GET** /api/quotes
 
-Trả về tất cả các cả các quotes.
+Returns all quotes.
 
 #### Example request
 
@@ -38,6 +38,7 @@ Trả về tất cả các cả các quotes.
     author: String,
     tags: [],
     length: Number,
+    language: String,
     createdAt: Date,
     updatedAt: Date
     __v: 0
@@ -63,6 +64,7 @@ Trả về tất cả các cả các quotes.
     author: String,
     tags: [],
     length: Number,
+    language: String,
     createdAt: Date,
     updatedAt: Date
     __v: 0
