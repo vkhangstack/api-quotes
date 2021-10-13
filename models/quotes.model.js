@@ -11,7 +11,7 @@ const quoteSchema = new Schema(
     },
     author: {
       type: String,
-      required: false,
+      required: true,
     },
     tags: {
       type: Array,
@@ -19,12 +19,16 @@ const quoteSchema = new Schema(
     },
     length: {
       type: Number,
-      required: false,
+      required: true,
+    },
+    language: {
+      type: String,
+      required: true,
     },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("quote", quoteSchema);

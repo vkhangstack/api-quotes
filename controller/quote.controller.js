@@ -25,9 +25,10 @@ const addQuote = async (req, res) => {
 
     const quotes = await new QuotesModel({
       quote: body.quote,
-      author: body.author,
+      author: body.author || "Unknown",
       tags: body.tags,
-      length: body.quote.length,
+      length: body.quote.length || "Unknown",
+      language: body.language || "Unknown",
     }).save();
 
     return res.status(200).send(quotes);
