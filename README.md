@@ -25,7 +25,7 @@ The Quotes API is free, open source. It is built from the needs of a coder to ca
 
 > **GET** /api/quotes
 
-Trả về tất cả các cả các quotes.
+Return all quotes
 
 #### Example request
 
