@@ -10,6 +10,8 @@ The Quotes API is free, open source. It is built from the needs of a coder to ca
 
 [![GitHub license](https://img.shields.io/github/license/vkhangstack/api-quotes?style=plastic)](https://github.com/vkhangstack/api-quotes/)
 
+# **Document**
+
 ## Server
 
 | Name       | URL                                     | Description                                       |
@@ -32,16 +34,19 @@ Trả về tất cả các cả các quotes.
 ### Response
 
 ```js
-{
-    _id: oid,
-    quote: String,
-    author: String,
-    tags: [],
-    length: Number,
-    createdAt: Date,
-    updatedAt: Date
-    __v: 0
-}
+[
+  {
+      _id: oid,
+      quote: String,
+      author: String,
+      tags: [],
+      length: Number,
+      createdAt: Date,
+      updatedAt: Date
+      __v: 0
+  }
+...
+]
 ```
 
 ### Get random quote
