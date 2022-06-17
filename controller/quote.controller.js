@@ -135,8 +135,38 @@ const getQuoteQuery = async (req, res) => {
   }
 };
 
+/**
+ * Render home choose file and upload to server.
+ * @param {*} _req
+ * @param {*} res
+ */
+const addPage = (_req, res) => {
+  try {
+    res.render("index");
+  } catch (error) {
+    res.status(404).send(error.message || error);
+  }
+};
+
+const pushJson = (req, res, next) => {
+  try {
+    res.send("OK");
+    const data = req.file;
+    console.log(typeof data);
+    if (!data) {
+      const error = new Error("Please choose files");
+      error.httpStatusCode = 400;
+      return next(error);
+    }
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+};
+
 module.exports = {
   addQuote,
   getQuotes,
   getQuoteQuery,
+  addPage,
+  pushJson,
 };
