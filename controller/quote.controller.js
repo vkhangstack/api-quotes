@@ -5,6 +5,23 @@ const BadRequest = require("../utils/handleBadRequest");
 const QuotesModel = require("../models/quotes.model");
 const NotAccept = require("../utils/handleNotAccept");
 const Random = require("../utils/random");
+const fs = require("fs");
+const path = require("path");
+
+const uploadUrl = path.join(__dirname, "../upload/myFile.json");
+let myFile = require("../upload/myFile.json");
+
+const saveFile = () => {
+  fs.writeFile(
+    "./upload/myFile.json",
+    JSON.stringify(myFile, null, 2),
+    (error) => {
+      if (error) {
+        throw error;
+      }
+    }
+  );
+};
 
 /**
  * Add single quote to database.
@@ -148,16 +165,67 @@ const addPage = (_req, res) => {
   }
 };
 
+/**
+ * redirect to the quotes page
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 const pushJson = (req, res, next) => {
   try {
-    res.send("OK");
-    const data = req.file;
-    console.log(typeof data);
-    if (!data) {
-      const error = new Error("Please choose files");
-      error.httpStatusCode = 400;
-      return next(error);
-    }
+    fs.readFile(uploadUrl, (error, data) => {
+      if (error) throw error;
+      let quotes = JSON.parse(data);
+      return res.render("quotes", {
+        data: quotes,
+        message: "OK",
+      });
+    });
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+};
+
+/**
+ * render add quote page
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
+const addJson = async (req, res) => {
+  try {
+    let body = req.body;
+    if (!body) return res.send(NotFound());
+    // Check data already exist
+    const check = await QuotesModel.find({
+      quote: { $eq: body.quote.toString() },
+    });
+    if (check[0])
+      return res.render("quotes", {
+        data: quotes,
+        message: "Quote already exists",
+        status: 200,
+      });
+
+    await new QuotesModel({
+      quote: body.quote,
+      author: body.author || "Unknown",
+      tags: body.tags,
+      length: body.quote.length || "Unknown",
+      language: body.language || "Unknown",
+    }).save();
+
+    myFile = myFile.filter((data) => data.quote != body.quote);
+    saveFile();
+
+    fs.readFile(uploadUrl, (error, data) => {
+      if (error) throw error;
+      let quotes = JSON.parse(data);
+      return res.render("quotes", {
+        data: quotes,
+        message: "OK",
+      });
+    });
   } catch (error) {
     res.status(404).send(error.message);
   }
@@ -169,4 +237,5 @@ module.exports = {
   getQuoteQuery,
   addPage,
   pushJson,
+  addJson,
 };

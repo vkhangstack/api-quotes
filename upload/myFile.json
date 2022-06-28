@@ -1,0 +1,132 @@
+[
+  {
+    "_id": "6166c4ef54db3ff89c88bd89",
+    "quote": "Đừng so sánh mình với bất cứ ai trong thế giới này. Nếu bạn làm như vậy có nghĩa bạn đang sỉ nhục chính bản thân mình.",
+    "author": "Bill Gates",
+    "tags": [
+      "life"
+    ],
+    "length": 118,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:37:19.022Z",
+    "updatedAt": "2021-10-13T11:37:19.022Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c51d54db3ff89c88bd8c",
+    "quote": "Tin rằng bạn có thể làm một điều gì đó đồng nghĩa với việc bạn đã đi được nửa đường đến đó.",
+    "author": "Theodore Roosevelt",
+    "tags": [
+      "life"
+    ],
+    "length": 91,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:38:05.192Z",
+    "updatedAt": "2021-10-13T11:38:05.192Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c53554db3ff89c88bd8f",
+    "quote": "Không có hoàn cảnh nào tuyệt vọng, chỉ có người tuyệt vọng vì hoàn cảnh.",
+    "author": "Khuyết danh",
+    "tags": [
+      "life"
+    ],
+    "length": 84,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:38:29.873Z",
+    "updatedAt": "2021-10-13T11:38:29.873Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c54754db3ff89c88bd92",
+    "quote": "Bắt đầu từ nơi bạn đứng. Sử dụng những gì bạn có. Làm những gì bạn có thể.",
+    "author": "Arthur Ashe",
+    "tags": [
+      "life"
+    ],
+    "length": 74,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:38:47.073Z",
+    "updatedAt": "2021-10-13T11:38:47.073Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c55d54db3ff89c88bd95",
+    "quote": "Tôi có một triết lý đơn giản đó là: lấp đầy những khoảng trống, làm trống những khoảng đầy và gãi những chỗ ngứa.",
+    "author": "Alice Roosevelt Longworth",
+    "tags": [
+      "life"
+    ],
+    "length": 113,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:39:09.503Z",
+    "updatedAt": "2021-10-13T11:39:09.503Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c57254db3ff89c88bd98",
+    "quote": "Nơi lạnh nhất không phải là Bắc cực mà là nơi không có tình người.",
+    "author": "Khuyết danh",
+    "tags": [
+      "life"
+    ],
+    "length": 66,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:39:30.491Z",
+    "updatedAt": "2021-10-13T11:39:30.491Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c58b54db3ff89c88bd9b",
+    "quote": "Chúng ta không nên bỏ cuộc, chúng ta không nên đề những khó khăn đánh bại mình.",
+    "author": "A. P. J. Abdul Kalam",
+    "tags": [
+      "life"
+    ],
+    "length": 79,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:39:55.470Z",
+    "updatedAt": "2021-10-13T11:39:55.470Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c5a254db3ff89c88bd9e",
+    "quote": "Nghèo không là xấu, nghèo mà không có chí mới là xấu; hèn không đáng ghét, hèn mà không có tài mới đáng ghét; già không nên than thở, già mà sống thừa mới đáng than thở; chết không nên bi ai, chết mà vô bổ mới đáng bi ai.",
+    "author": "Lã Khôn",
+    "tags": [
+      "life"
+    ],
+    "length": 221,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:40:18.761Z",
+    "updatedAt": "2021-10-13T11:40:18.761Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c5b454db3ff89c88bda1",
+    "quote": "Cuộc sống chỉ mang lại cho chúng ta 10% cơ hội, 90% còn lại là do chúng ta trải nghiệm thế nào với nó.",
+    "author": "Lou Holtz",
+    "tags": [
+      "life"
+    ],
+    "length": 102,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:40:36.027Z",
+    "updatedAt": "2021-10-13T11:40:36.027Z",
+    "__v": 0
+  },
+  {
+    "_id": "6166c5c654db3ff89c88bda4",
+    "quote": "Không vấp ngã trước cuộc sống, điều đó là rất tốt. Nhưng vấp ngã rồi đứng dậy mà đi lên càng tốt hơn.",
+    "author": " Khuyết danh",
+    "tags": [
+      "life"
+    ],
+    "length": 101,
+    "language": "vi",
+    "createdAt": "2021-10-13T11:40:54.322Z",
+    "updatedAt": "2021-10-13T11:40:54.322Z",
+    "__v": 0
+  }
+]

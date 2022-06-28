@@ -17,11 +17,21 @@
             <h2 class="title">Add Quotes with json file</h2>
             <form action="/api/jsonfile" method="POST" enctype="multipart/form-data">
                   <div class="input-group">
-                        <input type="file" class="form-control" name="myFile">
-                        <input class="btn btn-outline-primary" type="submit" value="PUSH"></input>
+                        <input type="file" class="form-control" name="myFile" id="filemy">
+                        <button class="btn btn-outline-primary" type="submit">PUSH</button>
                   </div>
             </form>
       </div>
+      <div class="add-quotes">
+            <form action="/api/quotes" method="post" enctype="text/plain">
+                  <div class="input-group">
+                        <input type="text" class="form-control" name="quotes">
+                        <input type="text" class="form-control" name="author">
+                        <input type="text" class="form-control" name="tags">
+                  </div>
+            </form>
+      </div>
+
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
