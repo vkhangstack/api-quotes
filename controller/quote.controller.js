@@ -135,8 +135,38 @@ const getQuoteQuery = async (req, res) => {
   }
 };
 
+/**
+ * Delete single quote
+ * Example: http://localhost:3000/api/quote/?id=62b8b8d68332497f6ea384bf
+ */
+const deleteQuote = async (req, res) => {
+  try {
+    const data = await QuotesModel.deleteOne({ _id: req.params.id });
+
+    if (!data) {
+      return res.status(200).send({
+        error: {
+          status: 200,
+          message: "Id not found",
+        },
+      });
+    } else {
+      return res.send({
+        success: {
+          status: 200,
+          data: data,
+          message: "Delete quotes successful",
+        },
+      });
+    }
+  } catch (error) {
+    return res.status(403).send(error.message);
+  }
+};
+
 module.exports = {
   addQuote,
   getQuotes,
   getQuoteQuery,
+  deleteQuote,
 };
