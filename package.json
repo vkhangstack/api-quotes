@@ -33,6 +33,7 @@
     "mongoose": "^6.0.10"
   },
   "devDependencies": {
+    "got": "^12.5.2",
     "nodemon": "^2.0.13"
   }
 }
